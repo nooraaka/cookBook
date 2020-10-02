@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>CookBook</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<h1>CookBook</h1>
+	
+	<div th:text="'Terveuloa herkullisten ruokareseptien maailmaan!'"></div>
+	
+	<table>
+		<tbody>
+			<tr th:each = "recipe : ${recipes}">
+				<td th:text="${recipe.name}"> </td>
+				<td th:text="${recipe.dishType}"> </td>
+				<td th:text="${recipe.ingredient}"> </td>
+				<td th:text="${recipe.measure}"> </td>
+				<td th:text="${recipe.readyIn}"> </td>
+				<td th:text="${recipe.amount}"> </td>	
+			</tr>
+		
+		</tbody>
+	</table>
+
+
+
+</body>
+</html>
