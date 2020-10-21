@@ -4,83 +4,77 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Recipe {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	private String name, dishType, ingredient, measure;
-	private int readyIn, amount;
+	private long recipeid;
+	private String recipeName, ingredient, method;
+
+	@ManyToOne
+	@JoinColumn(name="dishtypeid")
+	private DishType dishType;
 	
+//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+//	private List<Weekday> weekdays;
 	
 	public Recipe() {
 	}
 
-	public Recipe(String name, String dishType, String ingredient, String measure, int readyIn, int amount) {
+	public Recipe(String recipeName, String ingredient, String method) {
 		super();
-		this.name = name;
-		this.dishType = dishType;
+		this.recipeName = recipeName;
 		this.ingredient = ingredient;
-		this.measure = measure;
-		this.readyIn = readyIn;
-		this.amount = amount;
+		this.method = method;
 	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDishType() {
-		return dishType;
-	}
-
-	public void setDishType(String dishType) {
+	
+	public Recipe(String recipeName, String ingredient, String method, DishType dishType) {
+		super();
+		this.recipeName = recipeName;
+		this.ingredient = ingredient;
+		this.method = method;
 		this.dishType = dishType;
 	}
-
+	
+	public long getRecipeid() {
+		return recipeid;
+	}
+	
+	public void setRecipeid(long recipeid) {
+		this.recipeid = recipeid;
+	}
+	
+	public String getRecipeName() {
+		return recipeName;
+	}
+	
+	public void setRecipeName(String recipeName) {
+		this.recipeName = recipeName;
+	}
+	
 	public String getIngredient() {
 		return ingredient;
 	}
-
+	
 	public void setIngredient(String ingredient) {
 		this.ingredient = ingredient;
 	}
-
-	public String getMeasure() {
-		return measure;
-	}
-
-	public void setMeasure(String measure) {
-		this.measure = measure;
-	}
-
-	public int getReadyIn() {
-		return readyIn;
-	}
-
-	public void setReadyIn(int readyIn) {
-		this.readyIn = readyIn;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
+	
+	public String getMethod() {
+		return method;
 	}
 	
+	public void setMethod(String method) {
+		this.method = method;
+	}
+	
+	@Override
+	public String toString() {
+		return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient + ", method="
+				+ method + ", dishType=" + dishType + "]";
+	}
+
 }

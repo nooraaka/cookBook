@@ -6,7 +6,23 @@
 </head>
 <body>
 	<h1>CookBook etusivu</h1>
-	<p th:text="'Tervetuloa CookBook reseptikirjastoon, ' + ${name} + '!'"/>
+	<p th:text="'Tervetuloa CookBook reseptikirjastoon!'"/>
+	
+		<table>
+		<tr>
+			<th>Resepti</th>
+			<th>Ainesosat</th>
+			<th>Työvaiheet</th>
+		<tbody>
+			<tr th:each = "recipe : ${recipes}">
+				<td th:text="${recipe.recipeName}"> </td>
+				<td th:text="${recipe.ingredient}"> </td>
+				<td th:text="${recipe.method}"> </td>
 
+			</tr>
+		
+		</tbody>
+	</table>
+	 <a href="/add">Lisää resepti</a> 
 </body>
 </html>
