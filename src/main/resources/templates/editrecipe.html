@@ -11,7 +11,7 @@
 	<div>
 		<form th:object="${recipe}" th:action="@{../save}" action="#" method="post">
 
-			<input type="hidden" id="recipeid" th:field="*{recipeid}" />
+			<input type="hidden" th:field="*{recipeid}" class="form-control" />
 			
 			<label for="recipeName">Resepti</label>
 			<input type="text" id="recipeName" th:field="*{recipeName}" />
@@ -20,8 +20,14 @@
 			<label for="ingredient">Ainesosat</label>
 			<input type="text" id="ingredient" th:field="*{ingredient}" />
 			<div style="clear: both; display: block; height: 10px;"></div>		
-
-			
+			<label for="method">Työvaiheet</label>
+			<input type="text" id="method" th:field="*{method}" />
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="dishTypeList">Ruokalaji</label>
+			 <select id="dishTypeList" th:field="*{dishType}">
+       			<option th:each="dishType: ${dishTypes}" th:value="${dishType.dishTypeid}" th:text="${dishType.dishTypeName}">
+       			</option>
+			</select>
 		<div style="clear: both; display: block; height: 10px;"></div>
 		<input type="submit" class="btn btn-success" value="Save"></input>
 		</form>

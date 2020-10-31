@@ -20,7 +20,11 @@
 			<label for="method">Työvaiheet</label>
 			<input type="text" id="method" th:field="*{method}" />
 			
-
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="dishType">Ruokalaji</label>
+			 <select id="dishTypeList" th:field="*{dishType}"/>
+       			<option th:each="dishType: ${dishTypes}" th:value="${dishType.dishTypeid}" th:text="${dishType.dishTypeName}"></option>
+			</select>
 		<div style="clear: both; display: block; height: 10px;"></div>
 		<input type="submit" value="Save"></input>
 		</form>

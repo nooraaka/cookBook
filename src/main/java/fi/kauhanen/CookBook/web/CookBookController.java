@@ -19,14 +19,8 @@ public class CookBookController {
 	@Autowired
 	private DishTypeRepository dishTypeRepository;
 
-	// Etusivu - Hae reseptejä nimellä - Lisää uusi resepti
-	@RequestMapping(value={"/", "/helloUser"})
-	public String helloUser(Model model) {
-		model.addAttribute("recipes", recipeRepository.findAll());
-		return "helloUser";
-	}
 	// Listaa reseptit
-	@RequestMapping(value = {"/", "/list"})
+	@RequestMapping(value = {"/list"})
 	public String listRecipe(Model model) {
 		model.addAttribute("recipes", recipeRepository.findAll());
 		return "list";
@@ -57,9 +51,9 @@ public class CookBookController {
 
     // Edit recipe
    	@RequestMapping(value = "/edit/{id}")
-    public String addRecipe(@PathVariable("id") Long recipeid, Model model) {
+    public String editRecipe(@PathVariable("id") Long recipeid, Model model) {
     	model.addAttribute("recipe", recipeRepository.findById(recipeid));
-//    	model.addAttribute("dishTypes", dishTypeRepository.findAll());
+    	model.addAttribute("dishTypes", dishTypeRepository.findAll());
     	return "editrecipe";
     }  
 }

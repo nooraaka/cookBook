@@ -17,9 +17,7 @@ public class Recipe {
 	@ManyToOne
 	@JoinColumn(name="dishTypeid")
 	private DishType dishType;
-	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-//	private List<Weekday> weekdays;
+
 	
 	public Recipe() {
 	}

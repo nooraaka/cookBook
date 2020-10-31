@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface DishTypeRepository extends CrudRepository<DishType, Long> {
 	
-	List<DishType> findBydishTypeName (String dishTypeName);
+	List<DishType> findByDishTypeName(String dishTypeName);
 	
 }
