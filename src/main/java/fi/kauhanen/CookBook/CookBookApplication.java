@@ -22,14 +22,11 @@ public class CookBookApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(RecipeRepository recipeRepository, DishTypeRepository dishTypeRepository) {
+	public CommandLineRunner cookbookDemo(RecipeRepository recipeRepository, DishTypeRepository dishTypeRepository) {
 		return (args) -> {
-			log.info("save a couple of students");
+			log.info("save a couple of recipes");
 			
-			DishType keitto = new DishType("Keitto");
-			dishTypeRepository.save(keitto);
-			
-			dishTypeRepository.save(new DishType("Keitto"));
+			dishTypeRepository.save(new DishType("Keitto"));			
 			dishTypeRepository.save(new DishType("Pata"));
 			dishTypeRepository.save(new DishType("Jälkiruoka"));
 			

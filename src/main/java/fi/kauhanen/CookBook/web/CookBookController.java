@@ -47,7 +47,7 @@ public class CookBookController {
 	}
 
 	
-//	 Delete student
+//	 Delete recipe
    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
    public String deleteRecipe(@PathVariable("id") Long recipeid, Model model) {
     	recipeRepository.deleteById(recipeid);
@@ -55,11 +55,11 @@ public class CookBookController {
     }     
 
 
-    // Edit student
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editRecipe(@PathVariable("id") Long recipeid, Model model) {
+    // Edit recipe
+   	@RequestMapping(value = "/edit/{id}")
+    public String addRecipe(@PathVariable("id") Long recipeid, Model model) {
     	model.addAttribute("recipe", recipeRepository.findById(recipeid));
-    	model.addAttribute("dishTypes", dishTypeRepository.findAll());
+//    	model.addAttribute("dishTypes", dishTypeRepository.findAll());
     	return "editrecipe";
     }  
 }

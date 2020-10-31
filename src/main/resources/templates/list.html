@@ -13,14 +13,17 @@
 			<th>Resepti</th>
 			<th>Ainesosat</th>
 			<th>Työvaiheet</th>
+
 		<tbody>
 			<tr th:each = "recipe : ${recipes}">
 				<td th:text="${recipe.recipeName}"> </td>
 				<td th:text="${recipe.ingredient}"> </td>
 				<td th:text="${recipe.method}"> </td>
 
+				 		<td><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>    
+						<td><a th:href="@{/delete/{id}(id=${recipe.recipeid})}">Poista resepti</a></td> 
 			</tr>
-		
+				
 		</tbody>
 	</table>
 	 <a href="/add">Lisää resepti</a> 

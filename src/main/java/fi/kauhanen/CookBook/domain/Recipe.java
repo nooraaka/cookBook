@@ -15,7 +15,7 @@ public class Recipe {
 	private String recipeName, ingredient, method;
 
 	@ManyToOne
-	@JoinColumn(name="dishtypeid")
+	@JoinColumn(name="dishTypeid")
 	private DishType dishType;
 	
 //	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
@@ -38,43 +38,51 @@ public class Recipe {
 		this.method = method;
 		this.dishType = dishType;
 	}
-	
+
 	public long getRecipeid() {
 		return recipeid;
 	}
-	
+
 	public void setRecipeid(long recipeid) {
 		this.recipeid = recipeid;
 	}
-	
+
 	public String getRecipeName() {
 		return recipeName;
 	}
-	
+
 	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
 	}
-	
+
 	public String getIngredient() {
 		return ingredient;
 	}
-	
+
 	public void setIngredient(String ingredient) {
 		this.ingredient = ingredient;
 	}
-	
+
 	public String getMethod() {
 		return method;
 	}
-	
+
 	public void setMethod(String method) {
 		this.method = method;
 	}
-	
+
+	public DishType getDishType() {
+		return dishType;
+	}
+
+	public void setDishType(DishType dishType) {
+		this.dishType = dishType;
+	}
+
 	@Override
 	public String toString() {
-		return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient + ", method="
-				+ method + ", dishType=" + dishType + "]";
+		return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient
+				+ ", method=" + method + ", dishType=" + dishType + "]";
 	}
 
 }

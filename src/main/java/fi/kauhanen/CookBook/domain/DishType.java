@@ -49,10 +49,17 @@ public class DishType {
 		this.dishTypeName = dishTypeName;
 	}
 
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
 	@Override
 	public String toString() {
 		return "DishType [dishTypeid=" + dishTypeid + ", dishTypeName=" + dishTypeName + ", recipes=" + recipes + "]";
 	}
 
-	
 }
