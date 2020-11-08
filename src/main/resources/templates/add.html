@@ -21,8 +21,8 @@
 			<input type="text" id="method" th:field="*{method}" />
 			
 			<div style="clear: both; display: block; height: 10px;"></div>						
-		  	<label for="dishType">Ruokalaji</label>
-			 <select id="dishTypeList" th:field="*{dishType}"/>
+		  	<label for="dishTypeList">Ruokalaji</label>
+			 <select id="dishTypeList" th:field="*{dishType}" class="form-control">
        			<option th:each="dishType: ${dishTypes}" th:value="${dishType.dishTypeid}" th:text="${dishType.dishTypeName}"></option>
 			</select>
 		<div style="clear: both; display: block; height: 10px;"></div>

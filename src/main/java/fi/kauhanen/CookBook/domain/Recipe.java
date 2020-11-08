@@ -7,11 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 public class Recipe {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long recipeid;
+	private Long recipeid;
 	private String recipeName, ingredient, method;
 
 	@ManyToOne
@@ -19,8 +20,7 @@ public class Recipe {
 	private DishType dishType;
 
 	
-	public Recipe() {
-	}
+	public Recipe() {}
 
 	public Recipe(String recipeName, String ingredient, String method) {
 		super();
@@ -37,11 +37,11 @@ public class Recipe {
 		this.dishType = dishType;
 	}
 
-	public long getRecipeid() {
+	public Long getRecipeid() {
 		return recipeid;
 	}
 
-	public void setRecipeid(long recipeid) {
+	public void setRecipeid(Long recipeid) {
 		this.recipeid = recipeid;
 	}
 
@@ -79,8 +79,10 @@ public class Recipe {
 
 	@Override
 	public String toString() {
-		return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient
-				+ ", method=" + method + ", dishType=" + dishType + "]";
+		if (this.dishType != null)
+			return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient + ", method=" + method + " dishType =" + this.getDishType() + "]";		
+		else
+			return "Recipe [recipeid=" + recipeid + ", recipeName=" + recipeName + ", ingredient=" + ingredient + ", method=" + method + "]";
 	}
 
 }

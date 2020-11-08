@@ -20,8 +20,8 @@ public class CookBookController {
 	private DishTypeRepository dishTypeRepository;
 
 	// Listaa reseptit
-	@RequestMapping(value = {"/list"})
-	public String listRecipe(Model model) {
+	@RequestMapping(value = {"/", "/list"})
+	public String recipeList(Model model) {
 		model.addAttribute("recipes", recipeRepository.findAll());
 		return "list";
 	}
@@ -50,7 +50,7 @@ public class CookBookController {
 
 
     // Edit recipe
-   	@RequestMapping(value = "/edit/{id}")
+   	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editRecipe(@PathVariable("id") Long recipeid, Model model) {
     	model.addAttribute("recipe", recipeRepository.findById(recipeid));
     	model.addAttribute("dishTypes", dishTypeRepository.findAll());

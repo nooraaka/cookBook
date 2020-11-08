@@ -21,7 +21,8 @@
 				<td th:text="${recipe.recipeName}"> </td>
 				<td th:text="${recipe.ingredient}"> </td>
 				<td th:text="${recipe.method}"> </td>
- 				<td th:text="${recipe.dishType.dishTypeName}"> </td>
+				<td th:text="${recipe.dishType.dishTypeName}"> </td>
+
 				 	<td><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>   
 					<td><a th:href="@{/delete/{id}(id=${recipe.recipeid})}">Poista resepti</a></td> 
 			</tr>		

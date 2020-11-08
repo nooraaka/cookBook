@@ -13,31 +13,24 @@ import javax.persistence.OneToMany;
 public class DishType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long dishTypeid;
+	private Long dishTypeid;
 	private String dishTypeName;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "dishType")
 	private List<Recipe> recipes;
 	
-	public DishType() {
-	}
+	public DishType() {}
 
 	public DishType(String dishTypeName) {
 		super();
 		this.dishTypeName = dishTypeName;
 	}
 
-	public DishType(String dishTypeName, List<Recipe> recipes) {
-		super();
-		this.dishTypeName = dishTypeName;
-		this.recipes = recipes;
-	}
-
-	public long getDishTypeid() {
+	public Long getDishTypeid() {
 		return dishTypeid;
 	}
 
-	public void setDishTypeid(long dishTypeid) {
+	public void setDishTypeid(Long dishTypeid) {
 		this.dishTypeid = dishTypeid;
 	}
 
@@ -59,7 +52,9 @@ public class DishType {
 
 	@Override
 	public String toString() {
-		return "DishType [dishTypeid=" + dishTypeid + ", dishTypeName=" + dishTypeName + ", recipes=" + recipes + "]";
+		return "DishType [dishTypeid=" + dishTypeid + ", dishTypeName=" + dishTypeName + "]";
 	}
+
+
 
 }

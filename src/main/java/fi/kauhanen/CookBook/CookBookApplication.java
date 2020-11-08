@@ -1,12 +1,11 @@
 package fi.kauhanen.CookBook;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import fi.kauhanen.CookBook.domain.DishType;
 import fi.kauhanen.CookBook.domain.DishTypeRepository;
@@ -30,8 +29,8 @@ public class CookBookApplication {
 			dishTypeRepository.save(new DishType("Pata"));
 			dishTypeRepository.save(new DishType("Jälkiruoka"));
 			
-			recipeRepository.save(new Recipe("Kalakeitto", "Kalaa, vettä, perunoita, porkkanaa", "Pilko ainekset, keitä kattilassa 30min"));
-			recipeRepository.save(new Recipe("Makaronilaatikko", "Makaroni, jauheliha, kananmuna,  maito", "Ruskista jauheliha, kypsennä makaroni, tee munamaito ja uunissa 45min 200 astetta"));
+			recipeRepository.save(new Recipe("Kalakeitto", "Kalaa, vettä, perunoita, porkkanaa", "Pilko ainekset, keitä kattilassa 30min", dishTypeRepository.findByDishTypeName("Keitto").get(0)));
+			recipeRepository.save(new Recipe("Makaronilaatikko", "Makaroni, jauheliha, kananmuna,  maito", "Ruskista jauheliha, kypsennä makaroni, tee munamaito ja uunissa 45min 200 astetta", dishTypeRepository.findByDishTypeName("Keitto").get(0)));
 			
 		log.info("fetch all recipes");
 		for (Recipe recipe : recipeRepository.findAll()) {
