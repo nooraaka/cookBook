@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ch.qos.logback.core.net.LoginAuthenticator;
 import fi.kauhanen.CookBook.domain.DishTypeRepository;
 import fi.kauhanen.CookBook.domain.Recipe;
 import fi.kauhanen.CookBook.domain.RecipeRepository;
@@ -18,6 +19,12 @@ public class CookBookController {
 	
 	@Autowired
 	private DishTypeRepository dishTypeRepository;
+	
+	//login page
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
 
 	// Listaa reseptit
 	@RequestMapping(value = {"/", "/list"})

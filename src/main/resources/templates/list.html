@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>CookBook</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -7,6 +7,10 @@
 <body>
 	<h1>CookBook etusivu</h1>
 	<p th:text="'Tervetuloa CookBook reseptikirjastoon!'"/>
+	
+	<form th:action="@{/logout}" method="post">
+		<input type ="submit" value ="sign out" class = "btn-sm btn-danger"/>
+	</form>
 	
 		<table>
 		<tr>
@@ -23,7 +27,7 @@
 				<td th:text="${recipe.method}"> </td>
 				<td th:text="${recipe.dishType.dishTypeName}"> </td>
 
-				 	<td><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>   
+				 	<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>   
 					<td><a th:href="@{/delete/{id}(id=${recipe.recipeid})}">Poista resepti</a></td> 
 			</tr>		
 
