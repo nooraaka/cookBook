@@ -27,11 +27,11 @@
 				<td th:text="${recipe.method}"> </td>
 				<td th:text="${recipe.dishType.dishTypeName}"> </td>
 
-				 	<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>   
-					<td><a th:href="@{/delete/{id}(id=${recipe.recipeid})}">Poista resepti</a></td> 
+				 	<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${recipe.recipeid})}">Muokkaa reseptiä</a></td>   
+					<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${recipe.recipeid})}">Poista resepti</a></td> 
 			</tr>		
 
 	</table>
-	 <a href="/add">Lisää resepti</a> 
+	<td sec:authorize="hasAuthority('ADMIN')"><a href="/add">Lisää resepti</a></td>
 </body>
 </html>
