@@ -12,6 +12,7 @@
 		<form th:object="${recipe}" th:action="@{save}" action="#" method="post">
 			<label for="recipeName">Resepti</label>
 			<input type="text" id="recipeName" th:field="*{recipeName}" />
+			<td th:if="${#fields.hasErrors('recipeName')}" th:errors="*{recipeName}">RecipeName Error</td>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="ingredient">Ainesosat</label>

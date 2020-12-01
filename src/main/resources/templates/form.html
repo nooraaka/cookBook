@@ -6,16 +6,13 @@
 </head>
 
 <body>
-	<h1>Muokkaa reseptiä</h1>
+	<h1>CookBook lisää uusi resepti</h1>
 	
 	<div>
-		<form th:object="${recipe}" th:action="@{../save}" action="#" method="post">
-
-			<input type="hidden" th:field="*{recipeid}" class="form-control" />
-			
+		<form th:object="${recipe}" th:action="@{save}" action="#" method="post">
 			<label for="recipeName">Resepti</label>
 			<input type="text" id="recipeName" th:field="*{recipeName}" />
-			<td th:if="${#fields.hasErrors('recipeName')}" th:errors="*{recipeName}">RecipeName Error</td>
+			<td th:if="${#fields.hasErrors('recipeName')}" th:errors="*{recipeName}">Name Error</td>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="ingredient">Ainesosat</label>
@@ -23,14 +20,14 @@
 			<div style="clear: both; display: block; height: 10px;"></div>		
 			<label for="method">Työvaiheet</label>
 			<input type="text" id="method" th:field="*{method}" />
+			
 			<div style="clear: both; display: block; height: 10px;"></div>						
 		  	<label for="dishTypeList">Ruokalaji</label>
-			 <select id="dishTypeList" th:field="*{dishType}">
-       			<option th:each="dishType: ${dishTypes}" th:value="${dishType.dishTypeid}" th:text="${dishType.dishTypeName}">
-       			</option>
+			 <select id="dishTypeList" th:field="*{dishType}" class="form-control">
+       			<option th:each="dishType: ${dishTypes}" th:value="${dishType.dishTypeid}" th:text="${dishType.dishTypeName}"></option>
 			</select>
 		<div style="clear: both; display: block; height: 10px;"></div>
-		<input type="submit" class="btn btn-success" value="Save"></input>
+		<input type="submit" value="Save"></input>
 		</form>
 	
 	</div>

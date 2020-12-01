@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
+
 
 
 @Entity
@@ -13,7 +15,11 @@ public class Recipe {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long recipeid;
-	private String recipeName, ingredient, method;
+
+	@Size(min=2, message = "Liian lyhyt")
+	private String recipeName;
+
+	private String ingredient, method;
 
 	@ManyToOne
 	@JoinColumn(name="dishTypeid")
